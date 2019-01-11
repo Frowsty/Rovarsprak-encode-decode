@@ -27,7 +27,7 @@ def encode(user_input):
                 encoded_text[i] = encoded_text[i] + 'o' + encoded_text[i].lower()
     return ''.join(encoded_text)
 
-#auto detection if the string provided is encrypted or not
+#auto detection if the string provided is encoded or not
 def is_encoded(user_input):
     try:
         decode(user_input)
@@ -65,14 +65,14 @@ user_input = input("Input string to encode / decode: ")
 #ask if the user wants a file to save the results
 write_to_file = input("Would you like to create a text file with the results? (Y/N): ")
 
-#if the auto detection fails to find any encryption it will run the encryption on the string provided
+#if the auto detection fails to find any encoding on the string it will run the encoding on the string provided
 if is_encoded(user_input) == False:
     styling_func('Encoding', user_input)
     encoded_text = encode(user_input)
     decoded_text = ''
     enc_or_dec = "ENCODED: "
     print(f"ORIGINAL: {user_input}\nENCODED: {encoded_text}")
-#if the auto detection successfully finds a encryption it will run the decryption on the string provided
+#if the auto detection successfully finds an encoding on the string it will run the decoding on the string provided
 elif is_encoded(user_input) == True:
     styling_func('Decoding', user_input)
     decoded_text = decode(user_input)
